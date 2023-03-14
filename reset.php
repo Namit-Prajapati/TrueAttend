@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Online Attendance Management System 1.0</title>
+<title>TrueAttend</title>
 <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -32,7 +32,7 @@
 
 <header>
 
-  <h1>Online Attendance Management System 1.0</h1>
+  <h1>TrueAttend</h1>
   <div class="navbar">
   <a href="index.php">Login</a>
 

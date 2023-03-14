@@ -62,7 +62,7 @@ if(isset($_POST['login']))
 <html>
 <head>
 
-	<title>Online Attendance Management System</title>
+	<title>TrueAttend</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
@@ -82,7 +82,7 @@ if(isset($_POST['login']))
 
 <header>
 
-  <h1>Online Attendance Management System 1.0</h1>
+  <h1>TrueAttend</h1>
 
 </header>
 
