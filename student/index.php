@@ -3,8 +3,7 @@
 ob_start();
 session_start();
 
-if($_SESSION['name']!='oasis')
-{
+if ($_SESSION['name'] != 'oasis') {
   header('location: ../index.php');
 }
 ?>
@@ -13,47 +12,49 @@ if($_SESSION['name']!='oasis')
 <html lang="en">
 
 <!-- head started -->
+
 <head>
-<title>TrueAttend</title>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/main.css">
+  <title>TrueAttend</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
 
 </head>
 <!-- head ended -->
 
 <!-- body started -->
+
 <body>
 
-<!-- Menus started-->
-<header>
+  <!-- Menus started-->
+  <header>
 
-  <h1>TrueAttend</h1>
-  <div class="navbar">
-  <a href="index.php">Home</a>
-  <a href="students.php">Students</a>
-  <a href="report.php">My Report</a>
-  <a href="account.php">My Account</a>
-  <a href="../logout.php">Logout</a>
+    <h1>TrueAttend</h1>
+    <div class="navbar">
+      <a href="index.php">Home</a>
+      <a href="students.php">Students</a>
+      <a href="report.php">My Report</a>
+      <a href="account.php">My Account</a>
+      <a href="../logout.php">Logout</a>
 
-</div>
+    </div>
 
-</header>
-<!-- Menus ended -->
+  </header>
+  <!-- Menus ended -->
 
-<center>
+  <center>
 
-<!-- Content, Tables, Forms, Texts, Images started -->
-<div class="row">
-    <div class="content">
-      <p>Welcome Student :)</p>
-    <img src="../img/tcr.png" height="200px" width="300px" />
+    <!-- Content, Tables, Forms, Texts, Images started -->
+    <div class="row">
+      <div class="content">
+        <p>Welcome Student :)</p>
+        <img src="../img/tcr.png" height="200px" width="300px" />
 
-  </div>
+      </div>
 
-</div>
-<!-- Contents, Tables, Forms, Images ended -->
+    </div>
+    <!-- Contents, Tables, Forms, Images ended -->
 
-</center>
+  </center>
 
 </body>
 <!-- Body ended  -->
