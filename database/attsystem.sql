@@ -53,7 +53,7 @@ INSERT INTO `admininfo` (`username`, `password`, `email`, `fname`, `phone`, `typ
 --
 
 CREATE TABLE `attendance` (
-  `stat_id` varchar(20) NOT NULL,
+  `stat_id` int(20) NOT NULL,
   `course` varchar(20) NOT NULL,
   `st_status` varchar(10) NOT NULL,
   `stat_date` date NOT NULL
@@ -90,7 +90,7 @@ CREATE TABLE `reports` (
 --
 
 CREATE TABLE `students` (
-  `st_id` varchar(20) NOT NULL,
+  `st_id` int(20) NOT NULL,
   `st_name` varchar(20) NOT NULL,
   `st_dept` varchar(20) NOT NULL,
   `st_batch` int(4) NOT NULL,
@@ -103,10 +103,12 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`st_id`, `st_name`, `st_dept`, `st_batch`, `st_sem`, `st_email`) VALUES
-('1', 'Pravesh', 'CSE', 2020, 2, 'rawatpravesh0016@gmail.com'),
-('2', 'Nitish Sihmar', 'CSE', 2020, 3, 'sihmar.nitish@gmail.com'),
-('3', 'Shivam Singh', 'CSE', 2020, 3, 'shivam@gmail.com'),
-('4', 'Tushar Garg', 'CSE', 2020, 3, 'tushar@gmail.com');
+(1, 'Pravesh', 'CSE', 2020, 2, 'rawatpravesh0016@gmail.com'),
+(2, 'Nitish Sihmar', 'CSE', 2020, 3, 'sihmar.nitish@gmail.com'),
+(3, 'Shivam Singh', 'CSE', 2020, 3, 'shivam@gmail.com'),
+(4, 'Tushar Garg', 'CSE', 2020, 3, 'tushar@gmail.com'),
+(32, 'moiz bohra', 'CSE-DS', '2020', '5', 'moizbohra34@gmail.com');
+
 
 -- --------------------------------------------------------
 

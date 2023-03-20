@@ -7,9 +7,21 @@ if ($_SESSION['name'] != 'oasis') {
   header('location: login.php');
 }
 ?>
-
 <?php
 include('connect.php');
+
+$path = '../ml model/Student_Attendence.json';
+$jsonString = file_get_contents($path);
+$jsonData = json_decode($jsonString, true);
+$present_st = $jsonData["Enrollment_No"];
+foreach($present_st as $value){
+  $dp = date('Y-m-d');
+  $course = 'algo';
+  $st_present = 'Present';
+  $qry = mysqli_query($link, "insert into attendance(stat_id,course,st_status,stat_date) values('$value','$course','$st_present','$dp')");
+}
+?>
+<?php
 try {
 
   if (isset($_POST['att'])) {
@@ -186,10 +198,15 @@ try {
                       <?php echo $data['st_email']; ?>
                     </td>
                     <td>
+                      <?php
+                        $status = mysqli_query($link, "SELECT `st_status` FROM `attendance` WHERE stat_date = CURDATE() and stat_id = '".$data['st_id']."' ");
+                        $status_data = mysqli_fetch_array($status);
+                        $flag = 0;
+                      ?>
                       <label>Present</label>
-                      <input type="radio" name="st_status[<?php echo $radio; ?>]" value="Present">
+                      <input type="radio" name="st_status[<?php echo $radio; ?>]" value="Present" <?php if($status_data['st_status'] == "Present"){echo "checked"; $flag = 1;} ?> >
                       <label>Absent </label>
-                      <input type="radio" name="st_status[<?php echo $radio; ?>]" value="Absent" checked>
+                      <input type="radio" name="st_status[<?php echo $radio; ?>]" value="Absent" <?php if($status_data['st_status'] == "Absent" or $flag == 0){echo "checked";} ?> >
                     </td>
                   </tr>
                 </body>
