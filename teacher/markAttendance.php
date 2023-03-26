@@ -18,12 +18,12 @@ try {
         $total_arr = array();
         $final_arr = array();
         for($i = 0; $i<3; $i++){
-            sleep(30);
             $path = '../ml model/Student_Attendence.json';
             $jsonString = file_get_contents($path);
             $jsonData = json_decode($jsonString, true);
             $present_st = $jsonData["Enrollment_No"];
             $total_arr = array_merge($total_arr,$present_st);
+            sleep(5);       //here '5' means 5 seconds...
         }
         $cnt_total = array_count_values($total_arr);
         foreach ($cnt_total as $key => $value) {
