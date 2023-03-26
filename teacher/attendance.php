@@ -9,17 +9,6 @@ if ($_SESSION['name'] != 'oasis') {
 ?>
 <?php
 include('connect.php');
-
-$path = '../ml model/Student_Attendence.json';
-$jsonString = file_get_contents($path);
-$jsonData = json_decode($jsonString, true);
-$present_st = $jsonData["Enrollment_No"];
-foreach($present_st as $value){
-  $dp = date('Y-m-d');
-  $course = 'algo';
-  $st_present = 'Present';
-  $qry = mysqli_query($link, "insert into attendance(stat_id,course,st_status,stat_date) values('$value','$course','$st_present','$dp')");
-}
 ?>
 <?php
 try {
@@ -34,9 +23,9 @@ try {
       $dp = date('Y-m-d');
       $course = $_POST['whichcourse'];
 
-      $stat = mysqli_query($link, "insert into attendance(stat_id,course,st_status,stat_date) values('$stat_id','$course','$st_status','$dp')");
+      $stat = mysqli_query($link, "update attendance set st_status = '".$st_status."' where stat_id = '".$stat_id."' and stat_date = '".$dp."'");
 
-      $att_msg = "Attendance Recorded.";
+      $att_msg = "Attendance Updated.";
 
     }
 
@@ -85,6 +74,7 @@ try {
       <a href="index.php">Home</a>
       <a href="students.php">Students</a>
       <a href="teachers.php">Faculties</a>
+      <a href="markAttendance.php">Mark Attendance</a>
       <a href="attendance.php">Attendance</a>
       <a href="report.php">Report</a>
       <a href="../logout.php">Logout</a>
