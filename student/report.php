@@ -67,14 +67,15 @@ if ($_SESSION['name'] != 'oasis') {
             <label for="input1" class="col-sm-3 control-label">Select Subject</label>
             <div class="col-sm-4">
               <select name="whichcourse" id="input1">
-                <option value="da">Data Analytics</option>
+                <!-- <option value="da">Data Analytics</option>
                 <option value="ml">Machine Learning</option>
                 <option value="cg">Computer Graphics</option>
                 <option value="cn">Computer Network and Internet Protocol</option>
                 <option value="cd">Compiler Design</option>
                 <option value="pm">Project Management</option>
                 <option value="sd">Skill Development</option>
-                <option value="aws">Amazon Web Services</option>
+                <option value="aws">Amazon Web Services</option> -->
+                <option value="algo">Algo</option>
 
               </select>
             </div>
