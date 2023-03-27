@@ -43,8 +43,8 @@ CREATE TABLE `admininfo` (
 
 INSERT INTO `admininfo` (`username`, `password`, `email`, `fname`, `phone`, `type`) VALUES
 ('admin', 'admin', 'admin@gmail.com', 'admin', '2147483647', 'admin'),
-('pravesh', 'pravesh', 'rawatpravesh0016@gmail.com', 'Pravesh Rawat', '0992642003', 'student'),
-('sumit', 'sumit', 'sumitbangar59@gmail.com', 'sumit bangar', '988766363', 'teacher');
+('murtaza', 'murtaza', 'murtazabohraa@gmail.com', 'Murtaza Bohra', '8989008338', 'student'),
+('snape', 'snape', 'profsnape@gmail.com', 'Prof Snape', '999999999', 'teacher');
 
 -- --------------------------------------------------------
 
@@ -63,10 +63,10 @@ CREATE TABLE `attendance` (
 -- Dumping data for table `attendance`
 --
 
-INSERT INTO `attendance` (`stat_id`, `course`, `st_status`, `stat_date`) VALUES
-('1', 'algo', 'Present', '2018-11-14'),
-('2', 'algo', 'Present', '2018-11-13'),
-('1', 'algo', 'Absent', '2018-11-13');
+-- INSERT INTO `attendance` (`stat_id`, `course`, `st_status`, `stat_date`) VALUES
+-- ('1', 'algo', 'Present', '2018-11-14'),
+-- ('2', 'algo', 'Present', '2018-11-13'),
+-- ('1', 'algo', 'Absent', '2018-11-13');
 
 -- --------------------------------------------------------
 
@@ -103,10 +103,10 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`st_id`, `st_name`, `st_dept`, `st_batch`, `st_sem`, `st_email`) VALUES
-(1, 'Pravesh', 'CSE', 2020, 2, 'rawatpravesh0016@gmail.com'),
-(2, 'Nitish Sihmar', 'CSE', 2020, 3, 'sihmar.nitish@gmail.com'),
-(3, 'Shivam Singh', 'CSE', 2020, 3, 'shivam@gmail.com'),
-(4, 'Tushar Garg', 'CSE', 2020, 3, 'tushar@gmail.com'),
+(147, 'Murtaza Bohra', 'CSE', 2020, 5, 'murtazabohraa@gmail.com'),
+(150, 'Namit Prajapati', 'CSE', 2020, 5, 'namit@gmail.com'),
+(158, 'Nirnay Agrawal', 'CSE', 2020, 5, 'nirnay@gmail.com'),
+(162, 'Palash Shah', 'CSE', 2020, 5, 'palashshah606@gmail.com'),
 (32, 'moiz bohra', 'CSE-DS', '2020', '5', 'moizbohra34@gmail.com');
 
 
@@ -117,7 +117,7 @@ INSERT INTO `students` (`st_id`, `st_name`, `st_dept`, `st_batch`, `st_sem`, `st
 --
 
 CREATE TABLE `teachers` (
-  `tc_id` varchar(20) NOT NULL,
+  `tc_id` int(20) NOT NULL,
   `tc_name` varchar(20) NOT NULL,
   `tc_dept` varchar(20) NOT NULL,
   `tc_email` varchar(30) NOT NULL,
@@ -129,7 +129,7 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`tc_id`, `tc_name`, `tc_dept`, `tc_email`, `tc_course`) VALUES
-('1', 'Sumit Bangar', 'cse', 'sumit@gmail.com', 'SE');
+(1, 'Prof Snape', 'cse', 'snape@gmail.com', 'algo');
 
 --
 -- Indexes for dumped tables

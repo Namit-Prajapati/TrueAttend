@@ -23,7 +23,7 @@ try {
             // $jsonString = file_get_contents($path);
             $present_st = json_decode($jsonString, true);
             $total_arr = array_merge($total_arr,$present_st);
-            sleep(1);       //here '5' means 5 seconds...
+            sleep(5);       //here '5' means 5 seconds...
         }
         $cnt_total = array_count_values($total_arr);
         foreach ($cnt_total as $key => $value) {

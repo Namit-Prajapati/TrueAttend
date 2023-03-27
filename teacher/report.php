@@ -59,14 +59,15 @@ if ($_SESSION['name'] != 'oasis') {
 
           <label>Select Subject</label>
           <select name="whichcourse">
-            <option value="da">Data Analytics</option>
+            <!-- <option value="da">Data Analytics</option>
             <option value="ml">Machine Learning</option>
             <option value="cg">Computer Graphics</option>
             <option value="cn">Computer Network and Internet Protocol</option>
             <option value="cd">Compiler Design</option>
             <option value="pm">Project Management</option>
             <option value="sd">Skill Development</option>
-            <option value="aws">Amazon Web Services</option>
+            <option value="aws">Amazon Web Services</option> -->
+            <option value="algo">Algo</option>
           </select>
 
           <p> </p>
@@ -82,14 +83,15 @@ if ($_SESSION['name'] != 'oasis') {
 
           <label>Select Subject</label>
           <select name="course">
-            <option value="da">Data Analytics</option>
+            <!-- <option value="da">Data Analytics</option>
             <option value="ml">Machine Learning</option>
             <option value="cg">Computer Graphics</option>
             <option value="cn">Computer Network and Internet Protocol</option>
             <option value="cd">Compiler Design</option>
             <option value="pm">Project Management</option>
             <option value="sd">Skill Development</option>
-            <option value="aws">Amazon Web Services</option>
+            <option value="aws">Amazon Web Services</option> -->
+            <option value="algo">Algo</option>
           </select>
           <p> </p>
           <label>Date ( yyyy-mm-dd )</label>
