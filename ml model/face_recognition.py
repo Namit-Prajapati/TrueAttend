@@ -1,3 +1,5 @@
+from flask import Flask, request, jsonify
+import cv2
 from deepface import DeepFace
 import mediapipe as mp
 from mtcnn import MTCNN
@@ -7,6 +9,8 @@ import os
 import pickle
 import time
 import json
+
+app = Flask(__name__)
 
 mp_face_detection = mp.solutions.face_detection
 mp_drawing = mp.solutions.drawing_utils
@@ -23,6 +27,30 @@ def preprocess_image(image):
     image = image.astype('float32')
     image = (image - image.mean()) / image.std()
     return image
+
+
+def detect_faces(image):
+    results = face_detection.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+
+    # Draw face detections of each face.
+    if not results.detections:
+        return
+    annotated_image = image.copy()
+    for detection in results.detections:
+        if detection.score[0] > 0.5:
+            bbox = detection.location_data.relative_bounding_box
+            h, w, c = image.shape
+            x, y, width, height = int(
+                bbox.xmin * w), int(bbox.ymin * h), int(bbox.width * w), int(bbox.height * h)
+        if x < 0:
+            x = 0
+        if y < 0:
+            y = 1
+        if height > annotated_image.shape[0]:
+            height = annotated_image.shape[0]
+        if width > annotated_image.shape[1]:
+            width = annotated_image.shape[1]
+    return annotated_image[y:y+height, x:x+width]
 
 
 def get_embedding(model, face):
@@ -46,97 +74,105 @@ def recognize_face(model, embeddings, labels, face):
     if min_idx == -1:
         return None
     else:
-        return min_dist, labels[min_idx]
+        return labels[min_idx]
+
+
+def load_embeddings(directory):
+    embeddings = []
+    labels = []
+    for image_filename in os.listdir(directory):
+        # Load the image
+        image_path = os.path.join(directory, image_filename)
+        image = cv2.imread(image_path)
+        image = detect_faces(image)
+        embedding = get_embedding(model, image)
+        embeddings.append(embedding)
+        labels.append(int(image_filename.split("_")[-1].split(".")[0]))
+    return embeddings, labels
 
 
 # Specify the file path
 database_path = r'face_database.pkl'
 label_database_path = r'face_name_database.pkl'
 
+faces_list = []
+faces_name_list = []
 
 # Check if the file exists
 if os.path.exists(database_path):
     faces_list = pickle.load(
-        open('face_database.pkl', 'rb'))
+        open(database_path, 'rb'))
     faces_list = list(faces_list)
 
 if os.path.exists(database_path):
     faces_name_list = pickle.load(
-        open('face_name_database.pkl', 'rb'))
+        open(label_database_path, 'rb'))
     faces_name_list = list(faces_name_list)
 
 
-def attendence():
+@app.route('/train')
+def train():
+    new_faces_path = r'C:\xampp\htdocs\TrueAttend\ml model\final_train'
+# load face embeddings and labels
+    embeddings, labels = load_embeddings(new_faces_path)
+    new_labels = set(labels)
+    new_names = []
+    for x in new_labels:
+        if x not in faces_name_list:
+            new_names.append(x)
+
+    for i in range(len(embeddings)):
+        if labels[i] in new_names:
+            faces_list.append(embeddings[i])
+            faces_name_list.append(labels[i])
+    no_of_person = list(set(faces_name_list))
+    Total_faces = len(faces_list)
+    res_dict = {"Trained Student": no_of_person, "Total faces": Total_faces}
+    pickle.dump(faces_list, open(r'face_database.pkl', 'wb'))
+    pickle.dump(faces_name_list, open(r'face_name_database.pkl', 'wb'))
+    return jsonify(res_dict)
+
+
+@app.route('/recognize')
+def recognize():
+    enroll = list(set(faces_name_list))
     cap = cv2.VideoCapture(0)
-    dictn = {147: "murtaza", 32: "moiz", 150: "namit",
-             162: "palash", 158: "nirnay", 4: "chetan"}
-    enroll = [4, 32, 150, 158, 162, 147]
-    stu_attendence = []
-    final_attendence_list = []
-    for i in range(3):
-        ret, frame = cap.read()
-        # frame = cv2.imread(r"C:\Users\moizb\Downloads\collage_test.jpg")
-        # frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
-        results = face_detection.process(
-            cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-        each_iter_attendence = []
-        annotated_image = frame.copy()
-        for detection in results.detections:
-            if detection.score[0] > 0.5:
-                bbox = detection.location_data.relative_bounding_box
-                h, w, c = frame.shape
-                x, y, width, height = int(
-                    bbox.xmin * w), int(bbox.ymin * h), int(bbox.width * w), int(bbox.height * h)
-                cv2.rectangle(annotated_image, (x, y),
-                              (x + width, y + height), (0, 255, 0), 2)
-                if x < 0:
-                    x = 0
-                if y < 0:
-                    y = 1
-                if height > annotated_image.shape[0]:
-                    height = annotated_image.shape[0]
-                if width > annotated_image.shape[1]:
-                    width = annotated_image.shape[1]
-                min_dist, label = recognize_face(
-                    model, faces_list, faces_name_list, frame[y:y+height, x:x+width])
-                if min_dist < 0.4:
-                    cv2.rectangle(
-                        frame, (x, y), (x+width, y+height), (0, 255, 0), 2)
-                    cv2.putText(frame, dictn[label], (x, y-10),
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
-                    each_iter_attendence.append(label)
-                else:
-                    cv2.rectangle(
-                        frame, (x, y), (x+width, y+height), (0, 255, 0), 2)
-                    cv2.putText(frame, "Not Recognize"+str(min_dist), (x, y-10),
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
-        stu_attendence.append(each_iter_attendence)
-        cv2.imshow("Frame", frame)
-
-        time.sleep(10)
-
-        cv2.destroyAllWindows()
-    for x in enroll:
-        count = 0
-        if x in stu_attendence[0]:
-            count = count + 1
-        if x in stu_attendence[1]:
-            count = count + 1
-        if x in stu_attendence[2]:
-            count = count + 1
-        if count >= 2:
-            final_attendence_list.append(x)
-
+    ret,frame = cap.read()
+    results = face_detection.process(
+        cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+    each_iter_attendence = []
+    annotated_image = frame.copy()
+    for detection in results.detections:
+        if detection.score[0] > 0.5:
+            bbox = detection.location_data.relative_bounding_box
+            h, w, c = frame.shape
+            x, y, width, height = int(
+                bbox.xmin * w), int(bbox.ymin * h), int(bbox.width * w), int(bbox.height * h)
+            if x < 0:
+                x = 0
+            if y < 0:
+                y = 1
+            if height > annotated_image.shape[0]:
+                height = annotated_image.shape[0]
+            if width > annotated_image.shape[1]:
+                width = annotated_image.shape[1]
+            label = recognize_face(
+                model, faces_list, faces_name_list, frame[y:y+height, x:x+width])
+            each_iter_attendence.append(label)
+            # if min_dist < 0.4:
+            #     cv2.rectangle(
+            #         frame, (x, y), (x+width, y+height), (0, 255, 0), 2)
+            #     cv2.putText(frame, dictn[label], (x, y-10),
+            #                 cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+            #     each_iter_attendence.append(label)
+            # else:
+            #     cv2.rectangle(
+            #         frame, (x, y), (x+width, y+height), (0, 255, 0), 2)
+            #     cv2.putText(frame, "Not Recognize"+str(min_dist), (x, y-10),
+            #                 cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
     cap.release()
-    filename = 'Student_Attendence.json'
-    isFile = os.path.isfile(filename)
-
-    with open(filename, 'r') as fp:
-        data = json.load(fp)
-    # json.dump(emps, fp, indent=4)
-    data['Enrollment_No'] = final_attendence_list
-    with open(filename, 'w') as file:
-        json.dump(data, file, indent=4)
+    return jsonify(each_iter_attendence)
 
 
-attendence()
+if __name__ == '__main__':
+    app.run(debug=True)

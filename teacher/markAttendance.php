@@ -18,6 +18,7 @@ try {
         $total_arr = array();
         $final_arr = array();
         for($i = 0; $i<3; $i++){
+            
             $path = '../ml model/Student_Attendence.json';
             $jsonString = file_get_contents($path);
             $jsonData = json_decode($jsonString, true);
