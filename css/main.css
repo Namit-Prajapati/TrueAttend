@@ -1,4 +1,4 @@
- {
+*{
     box-sizing: border-box;
 }
 
@@ -8,14 +8,14 @@ header{
     text-align: center;
 }
 body {
-    color: black;/*#dce3ed;*/
-    background-color: white;/*#3e4651;*/
+    color: black;
+    background-color: white;
     font-family: Arial;
     margin: 0;
 }
 
 table input{
-    background-color: white;/*#627287;*/
+    background-color: white;
 }
 table td button{
     background-color: #627287;
@@ -30,7 +30,7 @@ table td button{
 .navbar a {
     float: left;
     display: block;
-    color: white; /*#dce3ed;*/
+    color: white; 
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
@@ -50,7 +50,7 @@ table td button{
 
 .content {
     flex: 30%;
-    background-color: white; /*#3e4651;*/
+    background-color: white;
     padding: 50px;
 }
 select{

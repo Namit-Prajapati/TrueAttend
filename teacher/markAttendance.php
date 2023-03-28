@@ -4,7 +4,7 @@ ob_start();
 session_start();
 
 if ($_SESSION['name'] != 'oasis') {
-  header('location: login.php');
+  header('location: ../index.php');
 }
 ?>
 <?php
