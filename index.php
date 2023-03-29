@@ -147,7 +147,7 @@ if (isset($_POST['login'])) {
 
 					<div class="form-group" class="radio">
 						<label for="input1" class="col-sm-3 control-label">Role</label>
-						<div class="col-sm-7">
+						<div class="col-sm-7" >
 							<label>
 								<input type="radio" name="type" id="optionsRadios1" value="student" checked> Student
 							</label>
