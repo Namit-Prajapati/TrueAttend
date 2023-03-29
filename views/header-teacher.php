@@ -1,3 +1,13 @@
+<?php
+
+ob_start();
+session_start();
+
+if($_SESSION['name']!='oasis')
+{
+  header('location: ../index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,11 +77,13 @@
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                 style="padding:2px 10px; background-color:#333;border:none">
-                User
+                <?php
+                    echo $_SESSION['username'];
+                ?>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="right:0;
   align-items: end;left: auto;">
-                <a class="dropdown-item" href="#">Logout</a>
+                <a class="dropdown-item" href="../logout.php">Logout</a>
             </div>
         </div>
     </nav>
@@ -80,7 +92,3 @@
     <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js'></script>
     <script src="../script/header.js"></script>
-
-</body>
-
-</html>

@@ -17,13 +17,18 @@ try {
     if (isset($_POST['att'])) {
         $total_arr = array();
         $final_arr = array();
+        sleep(5);
         for($i = 0; $i<3; $i++){
             $jsonString = file_get_contents("http://127.0.0.1:5000/recognize");
             // $path = '../ml model/Student_Attendence.json';
             // $jsonString = file_get_contents($path);
             $present_st = json_decode($jsonString, true);
             $total_arr = array_merge($total_arr,$present_st);
-            sleep(5);       //here '5' means 5 seconds...
+            if($i == 2){
+              continue;
+            }
+            $random = rand(5,30);
+            sleep($random);       //here '5' means 5 seconds...
         }
         $cnt_total = array_count_values($total_arr);
         foreach ($cnt_total as $key => $value) {
