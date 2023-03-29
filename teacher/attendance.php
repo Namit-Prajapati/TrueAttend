@@ -191,13 +191,16 @@ try {
                     <td>
                       <?php
                         $status = mysqli_query($link, "SELECT `st_status` FROM `attendance` WHERE stat_date = CURDATE() and stat_id = '".$data['st_id']."' ");
-                        $status_data = mysqli_fetch_array($status);
+                        $stat_pre = -1;
+                        while ($status_data = mysqli_fetch_array($status)) {
+                          $stat_pre = $status_data['st_status'];
+                        }
                         $flag = 0;
                       ?>
                       <label>Present</label>
-                      <input type="radio" name="st_status[<?php echo $radio; ?>]" value="Present" <?php if($status_data['st_status'] == "Present"){echo "checked"; $flag = 1;} ?> >
+                      <input type="radio" name="st_status[<?php echo $radio; ?>]" value="Present" <?php if($stat_pre == "Present"){echo "checked"; $flag = 1;} ?> >
                       <label>Absent </label>
-                      <input type="radio" name="st_status[<?php echo $radio; ?>]" value="Absent" <?php if($status_data['st_status'] == "Absent" or $flag == 0){echo "checked";} ?> >
+                      <input type="radio" name="st_status[<?php echo $radio; ?>]" value="Absent" <?php if($stat_pre == "Absent" or $flag == 0){echo "checked";} ?> >
                     </td>
                   </tr>
                 </body>
