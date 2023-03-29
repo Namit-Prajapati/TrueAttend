@@ -13,7 +13,7 @@ if($_SESSION['name']!='oasis')
 
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - bootstrap 4 navbar</title>
+    <title>TrueAttend</title>
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -54,7 +54,7 @@ if($_SESSION['name']!='oasis')
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Attendance</a>
                 </li>
-                <li class="nav-item" style="margin-right:20px">
+                <li class="nav-item" style="margin-right:30px">
                     <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Report</a>
                 </li>
                 <!-- <li class="nav-item">
