@@ -72,7 +72,7 @@ include('connect.php');
           if ($row == 0) {
             ?>
             <div class="content">
-              <p>Email is not associated with any account. Contact OAMS 1.0</p>
+              <p>Email is not associated with any account. Contact Admin</p>
             </div>
 
             <?php
@@ -87,7 +87,7 @@ include('connect.php');
                 <p style="text-align: left;">Hi there!<br>You requested for a password recovery. You may <a
                     href="index.php">Login here</a> and enter this key as your password to login. Recovery key: <mark>
                     <?php echo $dat['password']; ?>
-                  </mark><br>Regards,<br>Online Attendance Management System 1.0</p>
+                  </mark><br>Regards,<br>TrueAttend</p>
               </strong>
               <?php
             }
