@@ -3,54 +3,27 @@
 ob_start();
 session_start();
 
-if ($_SESSION['name'] != 'oasis') {
-  header('location: login.php');
+if($_SESSION['name']!='oasis')
+{
+  header('location: ../index.php');
+}
+elseif($_SESSION['role']=='teacher')
+{
+  header('location: ../teacher/index.php');
+}
+elseif ($_SESSION['role']=='admin') {
+  header('location: ../admin/index.php');
 }
 ?>
 <?php include('connect.php'); ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- head started -->
-
-<head>
-  <title>TrueAttend</title>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="../css/main.css">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</head>
-<!-- head ended -->
-
-<!-- body started -->
-
-<body>
-
-  <!-- Menus started-->
-  <header>
-
-    <h1>TrueAttend</h1>
-    <div class="navbar">
-      <a href="index.php">Home</a>
-      <a href="students.php">Students</a>
-      <a href="report.php">My Report</a>
-      <a href="account.php">My Account</a>
-      <a href="../logout.php">Logout</a>
-
-    </div>
-
-  </header>
-  <!-- Menus ended -->
+<?php
+include('../views/header-student.php');
+?>
+<script>
+  var element = document.getElementById("report");
+  element.classList.add("active");
+</script>
 
   <center>
 
