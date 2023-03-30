@@ -56,7 +56,7 @@ include('../views/header-admin.php');
 </script>
 <center>
 <!-- Error or Success Message printint started -->
-<div class="message">
+<div >
         <?php if(isset($success_msg)) echo $success_msg; if(isset($error_msg)) echo $error_msg; ?>
 </div>
 <!-- Error or Success Message printint ended -->
@@ -66,48 +66,48 @@ include('../views/header-admin.php');
 
   <center> Select: <a href="#teacher">Teacher</a> | <a href="">Student</a> <br></center>
 
-  <div class="row" id="student">
+  <div id="student">
 
 
 
       <form method="post" class="form-horizontal col-md-6 col-md-offset-3">
       <h4>Add Student's Information</h4>
-      <div class="form-group">
+      <div class="form-group" style="display: flex;">
           <label for="input1" class="col-sm-3 control-label">Reg. No.</label>
           <div class="col-sm-7">
             <input type="text" name="st_id"  class="form-control" id="input1" placeholder="student reg. no." />
           </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="display: flex;">
           <label for="input1" class="col-sm-3 control-label">Name</label>
           <div class="col-sm-7">
             <input type="text" name="st_name"  class="form-control" id="input1" placeholder="student full name" />
           </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="display: flex;">
           <label for="input1" class="col-sm-3 control-label">Department</label>
           <div class="col-sm-7">
             <input type="text" name="st_dept"  class="form-control" id="input1" placeholder="department ex. CSE" />
           </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="display: flex;">
           <label for="input1" class="col-sm-3 control-label">Batch</label>
           <div class="col-sm-7">
             <input type="text" name="st_batch"  class="form-control" id="input1" placeholder="batch e.x 2020" />
           </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="display: flex;">
           <label for="input1" class="col-sm-3 control-label">Semester</label>
           <div class="col-sm-7">
             <input type="text" name="st_sem"  class="form-control" id="input1" placeholder="semester ex. Fall-15" />
           </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="display: flex;">
           <label for="input1" class="col-sm-3 control-label">Email</label>
           <div class="col-sm-7">
             <input type="email" name="st_email"  class="form-control" id="input1" placeholder="valid email" />
@@ -125,35 +125,35 @@ include('../views/header-admin.php');
 
        <form method="post" class="form-horizontal col-md-6 col-md-offset-3">
         <h4>Add Teacher's Information</h4>
-      <div class="form-group">
+      <div class="form-group" style="display: flex;">
           <label for="input1" class="col-sm-3 control-label">Teacher ID</label>
           <div class="col-sm-7">
             <input type="text" name="tc_id"  class="form-control" id="input1" placeholder="teacher's id" />
           </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="display: flex;">
           <label for="input1" class="col-sm-3 control-label">Name</label>
           <div class="col-sm-7">
             <input type="text" name="tc_name"  class="form-control" id="input1" placeholder="teacher full name" />
           </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="display: flex;">
           <label for="input1" class="col-sm-3 control-label">Department</label>
           <div class="col-sm-7">
             <input type="text" name="tc_dept"  class="form-control" id="input1" placeholder="department ex. CSE" />
           </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="display: flex;">
           <label for="input1" class="col-sm-3 control-label">Email</label>
           <div class="col-sm-7">
             <input type="email" name="tc_email"  class="form-control" id="input1" placeholder="valid email" />
           </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="display: flex;">
           <label for="input1" class="col-sm-3 control-label">Subject Name</label>
           <div class="col-sm-7">
             <input type="text" name="tc_course"  class="form-control" id="input1" placeholder="subject ex. Software Engineering" />
