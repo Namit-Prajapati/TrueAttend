@@ -1,13 +1,3 @@
-<?php
-
-ob_start();
-session_start();
-
-if($_SESSION['name']!='oasis')
-{
-  header('location: ../index.php');
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +10,15 @@ if($_SESSION['name']!='oasis')
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
     <link rel="stylesheet" href="../css/header.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../css/main.css"> -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+    <style type="text/css">
+    .status {
+      font-size: 10px;
+    }
+  </style>
 
 
 </head>
@@ -38,24 +37,24 @@ if($_SESSION['name']!='oasis')
                     <div class="left"></div>
                     <div class="right"></div>
                 </div>
-                <li class="nav-item active ">
-                    <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                <li class="nav-item" id="dashboard">
+                    <a class="nav-link" href="../teacher/index.php"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Students</a>
+                <li class="nav-item" id="students">
+                    <a class="nav-link" href="../teacher/students.php"><i class="far fa-address-book"></i>Students</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Faculty</a>
+                <li class="nav-item" id="faculty">
+                    <a class="nav-link" href="../teacher/teachers.php"><i class="far fa-clone"></i>Teachers</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Mark
+                <li class="nav-item" id="mark">
+                    <a class="nav-link" href="../teacher/markAttendance.php"><i class="far fa-calendar-alt"></i>Mark
                         Attendance</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Attendance</a>
+                <li class="nav-item" id="attendance">
+                    <a class="nav-link" href="../teacher/attendance.php"><i class="far fa-chart-bar"></i>Attendance</a>
                 </li>
-                <li class="nav-item" style="margin-right:30px">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Report</a>
+                <li class="nav-item" id="report" style="margin-right:30px">
+                    <a class="nav-link" href="../teacher/report.php"><i class="far fa-copy"></i>Report</a>
                 </li>
                 <!-- <li class="nav-item">
 
