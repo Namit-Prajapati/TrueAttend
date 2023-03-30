@@ -106,6 +106,6 @@ include('../views/header-student.php');
 
   </center>
 
-</body>
-
-</html>
+<?php
+include('../views/footer.php');
+?>
