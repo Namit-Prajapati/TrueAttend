@@ -172,7 +172,6 @@ include('../views/header-student.php');
   </center>
   <!-- Contents, Tables, Forms, Images ended -->
 
-</body>
-<!-- Menus ended -->
-
-</html>
+<?php
+include('../views/footer.php');
+?>

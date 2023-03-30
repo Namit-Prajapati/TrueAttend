@@ -39,7 +39,6 @@ include('../views/header-student.php');
 
   </center>
 
-</body>
-<!-- Body ended  -->
-
-</html>
+<?php
+include('../views/footer.php');
+?>
