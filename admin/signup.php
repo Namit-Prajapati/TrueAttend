@@ -56,46 +56,14 @@ include('connect.php');
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<!-- head started -->
-<head>
-<title>TrueAttend</title>
-<meta charset="UTF-8">
-
-  <link rel="stylesheet" type="text/css" href="../css/main.css">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-   
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
-   
-  <link rel="stylesheet" href="styles.css" >
-   
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</head>
-<!-- head ended -->
-
-<!-- body started -->
-<body>
-
-    <!-- Menus started-->
-    <header>
-
-      <h1>TrueAttend</h1>
-      <div class="navbar">
-      <a href="signup.php">Create Users</a>
-      <a href="index.php">Add Data</a>
-      <a href="../logout.php">Logout</a>
-
-    </div>
-
-    </header>
-    <!-- Menus ended -->
-
+<?php
+include('../views/header-admin.php');
+?>
+<script>
+  var element = document.getElementById("createUser");
+  element.classList.add("active");
+</script>
 <center>
 <h1>Create User</h1>
 <p>    <?php
@@ -172,7 +140,6 @@ include('connect.php');
 
 </center>
 
-</body>
-<!-- Body ended  -->
-
-</html>
+<?php
+include('../views/footer.php');
+?>

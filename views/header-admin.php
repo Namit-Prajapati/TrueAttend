@@ -1,13 +1,4 @@
-<?php
 
-ob_start();
-session_start();
-
-if($_SESSION['name']!='oasis')
-{
-  header('location: ../index.php');
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +11,22 @@ if($_SESSION['name']!='oasis')
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
     <link rel="stylesheet" href="../css/header.css">
-
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <!-- Latest compiled and minified CSS -->
+  <!-- problematic css line below -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+   
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+    
+    <style type="text/css">
+        .message{
+            padding: 10px;
+            font-size: 15px;
+            font-style: bold;
+            color: black;
+        }
+    </style>
 
 </head>
 
@@ -38,14 +44,14 @@ if($_SESSION['name']!='oasis')
                     <div class="left"></div>
                     <div class="right"></div>
                 </div>
-                <li class="nav-item active ">
-                    <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                <li class="nav-item" id="dashboard">
+                    <a class="nav-link" href="../admin/index.php"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Create User</a>
+                <li class="nav-item " id="createUser">
+                    <a class="nav-link" href="../admin/signup.php"><i class="far fa-address-book"></i>Create User</a>
                 </li>
-                <li class="nav-item" style="margin-right:30px">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Add Data</a>
+                <li class="nav-item" id="addData" style="margin-right:30px">
+                    <a class="nav-link" href="../admin/addData.php"><i class="far fa-clone"></i>Add Data</a>
                 </li>
                 <!-- <li class="nav-item">
 
