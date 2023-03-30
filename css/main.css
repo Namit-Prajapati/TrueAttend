@@ -1,4 +1,4 @@
-*{
+/* *{
     box-sizing: border-box;
 }
 
@@ -12,7 +12,7 @@ body {
     background-color: white;
     font-family: Arial;
     margin: 0;
-}
+} */
 
 table input{
     background-color: white;
@@ -21,7 +21,7 @@ table td button{
     background-color: #627287;
 }
 
-.navbar {
+/* .navbar {
     font-size: 20px;
     overflow: hidden;
     background-color: #333;
@@ -34,12 +34,12 @@ table td button{
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
-}
+} */
 
-.navbar a:hover {
+/* .navbar a:hover {
     background-color: #ddd;
     color: black;
-}
+} */
 
 
 .row {  
