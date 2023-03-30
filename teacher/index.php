@@ -7,6 +7,13 @@ if($_SESSION['name']!='oasis')
 {
   header('location: ../index.php');
 }
+elseif($_SESSION['role']=='admin')
+{
+  header('location: ../admin/index.php');
+}
+elseif ($_SESSION['role']=='student') {
+  header('location: ../student/index.php');
+}
 ?> 
 <?php
 include('../views/header-teacher.php');

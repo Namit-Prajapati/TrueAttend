@@ -27,16 +27,19 @@ if (isset($_POST['login'])) {
 			session_start();
 			$_SESSION['name'] = "oasis";
 			$_SESSION['username'] = $_POST['username'];
+			$_SESSION['role'] = $_POST['type'];
 			header('location: teacher/index.php');
 		} else if ($row > 0 && $_POST["type"] == 'student') {
 			session_start();
 			$_SESSION['name'] = "oasis";
 			$_SESSION['username'] = $_POST['username'];
+			$_SESSION['role'] = $_POST['type'];
 			header('location: student/index.php');
 		} else if ($row > 0 && $_POST["type"] == 'admin') {
 			session_start();
 			$_SESSION['name'] = "oasis";
 			$_SESSION['username'] = $_POST['username'];
+			$_SESSION['role'] = $_POST['type'];
 			header('location: admin/index.php');
 		} else {
 			throw new Exception("Username,Password or Role is wrong, try again!");
