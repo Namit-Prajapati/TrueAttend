@@ -11,7 +11,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons"
     />
-    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="./css/login.css" />
   </head>
   <body>
     <!-- partial:index.partial.html -->
@@ -27,7 +27,7 @@
           if (isset($error_msg)) {
             echo $error_msg;
           }
-          echo "hi test";
+          // echo "hi test";
         ?>
         <div class="form-content">
           <form method="post">
@@ -103,6 +103,3 @@
     <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://codepen.io/andytran/pen/vLmRVp.js"></script>
     <script src="./script.js"></script> -->
-<?php
-include('../views/footer.php');
-?>

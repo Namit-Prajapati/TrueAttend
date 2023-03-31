@@ -56,26 +56,28 @@ if (isset($_POST['login'])) {
 }
 
 ?>
-
-<!DOCTYPE html>
+<?php
+include('./views/login.php');
+?>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
 
 	<title>TrueAttend</title>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css"> -->
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
 	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"> -->
 
-	<link rel="stylesheet" href="styles.css">
+	<!-- <link rel="stylesheet" href="styles.css"> -->
 
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
-</head>
+<!-- </head>
 
 <body>
 	<center>
@@ -88,45 +90,9 @@ if (isset($_POST['login'])) {
 
 		<h1>Login</h1>
 
-		<?php
-		//printing error message
-		if (isset($error_msg)) {
-			echo $error_msg;
-		}
-		?>
+		
 
-		<!-- Old Version -->
-		<!-- 
-<form action="" method="post">
-	
-	<table>
-		<tr>
-			<td>Username </td>
-			<td><input type="text" name="username"></input></td>
-		</tr>
-		<tr>
-			<td>Password</td>
-			<td><input type="password" name="password"></input></td>
-		</tr>
-		<tr>
-			<td>Role</td>
-			<td>
-			<select name="type">
-				<option name="teacher" value="teacher">Teacher</option>
-				<option name="student" value="student">Student</option>
-				<option name="admin" value="admin">Admin</option>
-			</select>
-			</td>
-		</tr>
-		<tr><td><br></td></tr>
-		<tr>
-			<td><button><input type="submit" name="login" value="Login"></input></button></td>
-			<td><button><input type="reset" name="reset" value="Reset"></button></td>
-		</tr>
-	</table>
-</form>
--->
-
+		
 		<div class="content">
 			<div class="row">
 
@@ -175,7 +141,9 @@ if (isset($_POST['login'])) {
 		<p><strong>Have forgot your password? <a href="reset.php">Reset here.</a></strong></p>
 		<p><strong>If you don't have any account, <a href="signup.php">Signup</a> here</strong></p>
 
-	</center>
-</body>
+	</center> -->
 
-</html>
+
+<?php
+include('./views/footer.php');
+?>
