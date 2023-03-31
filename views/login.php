@@ -51,7 +51,7 @@
             </div>
 
             <div  style="width: 100%; padding: 10px;">
-              <div class="col-sm-7" style="display: flex">
+              <div class="col-sm-7" style="display: flex;font-size:18px;font-weight:400">
                 <label style="flex: 1">
                   <input
                     class="login-radio"
@@ -86,13 +86,17 @@
               </div>
             </div>
 
-            <div class="form-group" style="display:flex">
-              <a class="form-recovery form-link" href="./reset.php">Forgot Password?</a>
-              <a class="form-recovery form-link" href="./signup.php">Signup</a>
+            <div class="form-group" style="display:flex;">
+              <a class="form-recovery form-link" style="font-size:15px;" href="./reset.php">Forgot Password?</a>
             </div>
             <div class="form-group">
               <button type="submit" value="Login" name="login">Log In</button>
             </div>
+            <center>
+              <div class="form-group" style="">
+                Don't have an account, <a class="form-recovery form-link" style="font-size:15px;" href="./signup.php">Signup</a>
+              </div>
+            </center>
           </form>
         </div>
       </div>
