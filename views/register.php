@@ -17,14 +17,15 @@
   <div class="form-panel two" style="margin:0 25%">
     <div class="form-header">
       <h1>Register Account</h1>
-      <?php
-        if (isset($success_msg))
-          echo $success_msg;
-        if (isset($error_msg))
-          echo $error_msg;
-        echo "hi";
-        ?>
     </div>
+    <center>
+      <?php
+      if (isset($success_msg))
+        echo '<div style="margin-top:-20px;color:white">' . $success_msg . '</div>';
+      if (isset($error_msg))
+        echo '<div style="margin-top:-20px;color:white">' . $error_msg . '</div>';
+      ?>
+    </center>
     <div class="form-content">
       <form method="post">
         <div class="form-group">
@@ -65,6 +66,12 @@
         <div class="form-group">
           <button type="submit" value="Signup" name="signup">Register</button>
         </div>
+        <center>
+          <div class="form-group" style="color:white">
+            Already have an account, <a class="form-recovery form-link" style="font-size:15px;font-weight:500;"
+              href="./index.php"> <span style="color:#0d6efd"> Login</span></a>
+          </div>
+        </center>
       </form>
     </div>
   </div>

@@ -153,7 +153,7 @@ body {
   text-decoration: none;
 }
 .form-panel {
-  padding: 60px calc(5% + 60px) 60px 60px;
+  padding: 45px 60px;
   box-sizing: border-box;
 }
 /* .form-panel.one:before {
@@ -179,7 +179,7 @@ body {
   min-height: 50%;
   /* padding: 60px calc(10% + 60px) 60px 60px; */
   /* transition: 0.3s ease; */
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 /* .form-panel.two:before, .form-panel.two:after {
   content: "";
