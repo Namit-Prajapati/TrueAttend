@@ -20,7 +20,7 @@
       <div class="form-toggle"></div>
       <div class="form-panel one">
         <div class="form-header">
-          <h1>Account Login</h1>
+          <h1>Account Login</h1>                                   
         </div>
         <?php
 		      //printing error message
@@ -30,7 +30,7 @@
           echo "hi test";
         ?>
         <div class="form-content">
-          <form>
+          <form method="post">
             <div class="form-group">
               <label for="username-login">Username</label>
               <input
@@ -91,7 +91,7 @@
               <a class="form-recovery form-link" href="#">Signup</a>
             </div>
             <div class="form-group">
-              <button type="submit">Log In</button>
+              <button type="submit" value="Login" name="login">Log In</button>
             </div>
           </form>
         </div>
