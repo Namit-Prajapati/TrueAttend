@@ -30,6 +30,14 @@ include('../views/header-admin.php');
 </script>
 <center>
 
+<div class="row">
+    <div class="content">
+      <p>Welcome to the TrueAttend's Admin module</p>
+    <img src="../img/tcr.png" height="200px" width="300px" />
+
+  </div>
+
+</div>
 
 </center>
 <?php
