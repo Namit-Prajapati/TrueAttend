@@ -257,3 +257,12 @@ body {
 .form-link:hover{
   color:#0d6efd
 }
+
+.error-message {
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 100px; /* Need a specific value to work */
+}
