@@ -22,6 +22,13 @@
         <div class="form-header">
           <h1>Account Login</h1>
         </div>
+        <?php
+		      //printing error message
+          if (isset($error_msg)) {
+            echo $error_msg;
+          }
+          echo "hi test";
+        ?>
         <div class="form-content">
           <form>
             <div class="form-group">
@@ -29,7 +36,7 @@
               <input
                 type="text"
                 id="username-login"
-                name="username-login"
+                name="username"
                 required="required"
               />
             </div>
@@ -38,7 +45,7 @@
               <input
                 type="password"
                 id="password-login"
-                name="password-login"
+                name="password"
                 required="required"
               />
             </div>
@@ -49,7 +56,7 @@
                   <input
                     class="login-radio"
                     type="radio"
-                    name="login-radio"
+                    name="type"
                     id="optionsRadios1"
                     value="student"
                     checked
@@ -60,7 +67,7 @@
                   <input
                     class="login-radio"
                     type="radio"
-                    name="login-radio"
+                    name="type"
                     id="optionsRadios1"
                     value="teacher"
                   />
@@ -70,7 +77,7 @@
                   <input
                     class="login-radio"
                     type="radio"
-                    name="login-radio"
+                    name="type"
                     id="optionsRadios1"
                     value="admin"
                   />
@@ -80,7 +87,7 @@
             </div>
 
             <div class="form-group" style="display:flex">
-              <a class="form-recovery form-link" href="#">Forgot Password?</a>
+              <a class="form-recovery form-link" href="../reset.php">Forgot Password?</a>
               <a class="form-recovery form-link" href="#">Signup</a>
             </div>
             <div class="form-group">
@@ -96,5 +103,6 @@
     <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://codepen.io/andytran/pen/vLmRVp.js"></script>
     <script src="./script.js"></script> -->
-  </body>
-</html>
+<?php
+include('../views/footer.php');
+?>
