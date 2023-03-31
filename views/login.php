@@ -88,7 +88,7 @@
 
             <div class="form-group" style="display:flex">
               <a class="form-recovery form-link" href="./reset.php">Forgot Password?</a>
-              <a class="form-recovery form-link" href="#">Signup</a>
+              <a class="form-recovery form-link" href="./signup.php">Signup</a>
             </div>
             <div class="form-group">
               <button type="submit" value="Login" name="login">Log In</button>
