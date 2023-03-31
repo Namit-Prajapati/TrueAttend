@@ -87,7 +87,7 @@
             </div>
 
             <div class="form-group" style="display:flex">
-              <a class="form-recovery form-link" href="../reset.php">Forgot Password?</a>
+              <a class="form-recovery form-link" href="./reset.php">Forgot Password?</a>
               <a class="form-recovery form-link" href="#">Signup</a>
             </div>
             <div class="form-group">
