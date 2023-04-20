@@ -6,26 +6,26 @@ include('connect.php');
 ?>
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <title>TrueAttend</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css"> -->
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
   <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"> -->
 
-  <link rel="stylesheet" href="styles.css">
+  <!-- <link rel="stylesheet" href="styles.css"> -->
 
   <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
-</head>
+<!-- </head>
 
 <body>
 
@@ -58,7 +58,7 @@ include('connect.php');
           <input type="submit" class="btn btn-primary col-md-2 col-md-offset-10" value="Go" name="reset" />
         </form>
 
-        <br>
+        <br> -->
 
         <?php
 
@@ -70,39 +70,28 @@ include('connect.php');
           $row = mysqli_num_rows($query);
 
           if ($row == 0) {
-            ?>
-            <div class="content">
-              <p>Email is not associated with any account. Contact Admin</p>
-            </div>
-
-            <?php
+            $error_msg = 'error404';
           } else {
 
             $query = mysqli_query($link, "select password from admininfo where email = '$test'");
             $i = 0;
             while ($dat = mysqli_fetch_array($query)) {
               $i++;
-              ?>
-              <strong>
-                <p style="text-align: left;">Hi there!<br>You requested for a password recovery. You may <a
-                    href="index.php">Login here</a> and enter this key as your password to login. Recovery key: <mark>
-                    <?php echo $dat['password']; ?>
-                  </mark><br>Regards,<br>TrueAttend</p>
-              </strong>
-              <?php
+              $recoveryKey = '<p style="text-align: left;">Hi there!<br>You requested for a password recovery. You may <a href="index.php">Login here</a> and enter this key as your password to login. Recovery key: <mark>' . $dat['password'] .'</mark><br>Regards,<br>TrueAttend</p>';              
             }
           }
         }
-
-
         ?>
 
-      </div>
+      <!-- </div>
 
     </div>
 
-  </center>
+  </center> -->
+<?php
+include('./views/reset-pass.php');
+?>
 
-</body>
-
-</html>
+<?php
+include('./views/footer.php');
+?>

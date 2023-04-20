@@ -6,7 +6,7 @@
   <title>TrueAttend</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" />
-  <link rel="stylesheet" href="../css/login.css" />
+  <link rel="stylesheet" href="./css/login.css" />
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         <?php
         //printing error message
         if (isset($error_msg)) {
-          echo '<div style="margin-top:-20px">' . $error_msg . '</div>';
+          echo '<div style="margin-top:-20px">' . 'Email is not associated with any account. Contact Admin' . '</div>';
         }
         ?>
       </center>
@@ -34,7 +34,7 @@
           </div>
 
           <div class="form-group">
-            <button type="submit" value="Login" name="login">Reset</button>
+            <button type="submit" value="Go" name="reset">Reset</button>
           </div>
           <center>
             <div class="form-group" style="">

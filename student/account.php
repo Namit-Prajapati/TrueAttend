@@ -157,8 +157,8 @@ include('../views/header-student.php');
                 <input type="hidden" name="id" value="<?php echo $sr_id; ?>">
 
               </table>
+              <input type="submit" class="btn btn-primary col-md-3 col-md-offset-7" value="Update" name="done" />
             </form>
-            <input type="submit" class="btn btn-primary col-md-3 col-md-offset-7" value="Update" name="done" />
           <?php
           }
         }
