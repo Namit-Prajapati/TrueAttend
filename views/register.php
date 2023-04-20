@@ -13,8 +13,8 @@
 </head>
 
 <body>
-
-  <div class="form-panel two" style="margin:0 25%">
+<div style="height:50px;background-color:#333;font-size:30px;display:flex;align-items:center"> <span style="margin:20px;color:white"> TrueAttend</span></div>
+  <div class="form-panel two" style="margin:5% 25%">
     <div class="form-header">
       <h1>Register Account</h1>
     </div>
@@ -75,3 +75,4 @@
       </form>
     </div>
   </div>
+  <div style="height:100px;margin-top:47%" ></div>

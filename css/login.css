@@ -24,7 +24,7 @@ body {
 } */
 
 .form {
-  z-index: 15;
+  /* z-index: 15; */
   position: relative;
   background: #FFFFFF;
   width: 600px;
@@ -169,8 +169,8 @@ body {
   visibility: visible;
 } */
 .form-panel.two {
-  z-index: 5;
-  position: absolute;
+  /* z-index: 5; */
+  /* position: absolute; */
   top: 2%;
   /* left: 95%; */
   background: #333;
