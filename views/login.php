@@ -7,11 +7,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" />
   <link rel="stylesheet" href="./css/login.css" />
+  
 </head>
 
 <body>
   <!-- partial:index.partial.html -->
   <!-- Form-->
+  <div style="height:50px;background-color:#333;font-size:30px;display:flex;align-items:center"> <span style="margin:20px;color:white"> TrueAttend</span></div>
   <div class="form">
     <div class="form-toggle"></div>
     <div class="form-panel one">
