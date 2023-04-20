@@ -48,14 +48,14 @@ try {
         $all_query = mysqli_query($link, "select * from students where st_batch='$batch' order by st_id asc");
         while ($data = mysqli_fetch_array($all_query)) {
             $dp = date('Y-m-d');
-            $course = 'algo';
+            $course = $_POST['course'];
             $st_present = 'Absent';
             if(in_array($data['st_id'], $final_arr)){
                 $st_present = 'Present';
             }
             $qry = mysqli_query($link, "insert into attendance(stat_id,course,st_status,stat_date) values('".$data['st_id']."','$course','$st_present','$dp')");
         }
-        $att_msg = "Attendance Marked.";
+        $att_msg = "Attendance Marked for " . $course;
     }
   } catch (Execption $e) {
     $error_msg = $e->$getMessage();
@@ -89,12 +89,39 @@ include('../views/header-teacher.php');
           </p>
         </center>
 
-        <form action="" method="post" class="form-horizontal col-md-6 col-md-offset-3">
+        <form action="" method="post">
 
-          <input type="submit" class="btn btn-primary col-md-2 col-md-offset-5" value="Mark!!" name="att" />
+          <div class="form-group">
 
-        </form>
+            <label>Select Subject</label>
+            <select name="whichcourse" id="input1">
+              <!-- <option value="da">Data Analytics</option> -->
+              <option value="ml">Machine Learning</option>
+              <!-- <option value="cg">Computer Graphics</option>
+              <option value="cn">Computer Network and Internet Protocol</option>
+              <option value="cd">Compiler Design</option>
+              <option value="pm">Project Management</option>
+              <option value="sd">Skill Development</option> -->
+              <option value="aws">Amazon Web Services</option>
+              <option value="algo">Algorithms</option>
+            </select>
 
+          </div>
+          <center>
+            <input type="submit" class="btn btn-primary col-md-2 col-md-offset-10" value="Go!" name="go" />
+          </center>
+        <?php
+        if(isset($_POST['go'])){ 
+          $crs = $_POST['whichcourse'];
+          ?>
+          <br><br>
+          <form action="" method="post" class="form-horizontal col-md-6 col-md-offset-3">
+            <input type="hidden" value="<?php echo $crs; ?>" name="course" />
+            <input type="submit" class="btn btn-primary col-md-2 col-md-offset-5" value="Mark!!" name="att" />
+
+          </form>
+        <?php }
+        ?>
         
 
           

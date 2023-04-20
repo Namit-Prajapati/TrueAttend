@@ -31,7 +31,7 @@ try {
       $dp = date('Y-m-d');
       $course = $_POST['whichcourse'];
 
-      $stat = mysqli_query($link, "update attendance set st_status = '".$st_status."' where stat_id = '".$stat_id."' and stat_date = '".$dp."'");
+      $stat = mysqli_query($link, "update attendance set st_status = '".$st_status."' where stat_id = '".$stat_id."' and course = '".$course."' and stat_date = '".$dp."'");
 
       $att_msg = "Attendance Updated.";
 
@@ -98,19 +98,23 @@ include('../views/header-teacher.php');
 
             <label>Select Subject</label>
             <select name="whichcourse" id="input1">
-              <!-- <option value="da">Data Analytics</option>
+              <!-- <option value="da">Data Analytics</option> -->
               <option value="ml">Machine Learning</option>
-              <option value="cg">Computer Graphics</option>
+              <!-- <option value="cg">Computer Graphics</option>
               <option value="cn">Computer Network and Internet Protocol</option>
               <option value="cd">Compiler Design</option>
               <option value="pm">Project Management</option>
-              <option value="sd">Skill Development</option>
-              <option value="aws">Amazon Web Services</option> -->
+              <option value="sd">Skill Development</option> -->
+              <option value="aws">Amazon Web Services</option>
               <option value="algo">Algorithms</option>
             </select>
 
           </div>
-
+          <center>
+            <input type="submit" class="btn btn-primary col-md-2 col-md-offset-10" value="Go!" name="go" />
+          </center>
+        </form>
+        <form action="" method="post">
           <table class="table table-stripped">
             <thead>
               <tr>
@@ -125,7 +129,7 @@ include('../views/header-teacher.php');
             </thead>
             <?php
 
-            if (isset($_POST['batch'])) {
+            if (isset($_POST['go'])) {
 
               $i = 0;
               $radio = 0;
@@ -159,7 +163,7 @@ include('../views/header-teacher.php');
                     </td>
                     <td>
                       <?php
-                        $status = mysqli_query($link, "SELECT `st_status` FROM `attendance` WHERE stat_date = CURDATE() and stat_id = '".$data['st_id']."' ");
+                        $status = mysqli_query($link, "SELECT `st_status` FROM `attendance` WHERE stat_date = CURDATE() and course = '".$_POST['whichcourse']."' and stat_id = '".$data['st_id']."' ");
                         $stat_pre = -1;
                         while ($status_data = mysqli_fetch_array($status)) {
                           $stat_pre = $status_data['st_status'];
@@ -181,7 +185,7 @@ include('../views/header-teacher.php');
             }
             ?>
           </table>
-
+            <input type="hidden" value="<?php echo $_POST['whichcourse']; ?>" name="whichcourse" />
           <center><br>
             <input type="submit" class="btn btn-primary col-md-2 col-md-offset-10" value="Save!" name="att" />
           </center>
